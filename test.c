@@ -1,6 +1,17 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+int* nettoyer(char trame[])
+{
+    int tabLength = sizeof(trame);
+    char newTab[tabLength-2];
+    for(int i =0;i<tabLength-1;i++)
+    {
+        newTab[i]=trame[i+1];
+    }
+    
+    return newTab;
+}
 int test(char trame[])
 {
     //fichier de sortie
@@ -51,7 +62,13 @@ int main()
 {
     char essai[]= "2lolduif8";
     essai[12]=-1;
-    test(essai);
+    int* pointeur = nettoyer(essai);
+    for(int i=0;i<6;i++)
+    {
+    printf("%c",(char) *(pointeur+i);
+    }
+
+
     return 0;
 
 }
